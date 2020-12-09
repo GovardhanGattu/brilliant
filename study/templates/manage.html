@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Management Page</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip({
+        placement : 'top'
+    });
+});
+</script>
+ <style>
+ 	body,html {
+      height: 100%;
+    }
+    .bg {
+  /* The image used */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  float: right;
+}
+
+.button {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+  border-radius: 15px;
+}
+
+.button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+    
+</style>
+</head>
+<body>
+<div class="bg">
+<button class="button"><a href="{% url 'newstaff' %}">ADD NEW</a></button>
+<button class="button"style="float: left;"><a href="{% url 'logout'%}">Logout</a></button>
+	<div align="center">
+	<div class="bs-example">
+    <table class="table table-bordered">
+		<thead>
+			<tr>
+				<td>S.NO</td>
+				<td>ID</td>
+				<td>Name</td>
+				<td>Emailid</td>
+				<td>IS Staff</td>
+				<td>Delete</td>
+				
+			</tr>
+		</thead>
+		<tbody>
+			{% for i in data %}
+				<tr>
+					<td>{{forloop.counter}}</td>
+					<td>{{i.id}}</td>
+					<td>{{i.username}}</td>
+					<td>{{i.is_staff}}</td>
+					<td>{{i.email}}</td>
+
+					<td><center> <a href="{% url 'stafftrash' i.id %}" style="color: red; font-size:26px;"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Delete"></span></a></center></td>
+		
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	</div>
+</div>
+</div>
+</body>
+</html>

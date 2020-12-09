@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Selection page</title>
+	 <meta charset="utf-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+	   <style>
+body,
+    html {
+      height: 100%;
+    }
+      .bg {
+  /* The image used */
+  background-image: url("https://cutewallpaper.org/21/education-wallpaper-hd/HD-wallpaper-white-book-page-background-tree-education-.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    }
+    .user_card {
+      width: 300px;
+      height: 350px;
+      margin: auto;
+      background: rgba(0,0,0);
+      background: rgba(0,0,0,0.5);
+      position: relative;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      border-radius: 5px;
+      color:white;
+      float: center;
+
+    }
+hgroup{
+  padding-top: 75px;
+}
+.form-control {
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 10px;
+    height: auto;
+    width: 140px;
+    padding: 5px;
+    font-size: 18px;
+    color: black;
+
+  }
+  .form-control:hover {background-color: #636059;color: white}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  float: right;
+}
+
+.button {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+  border-radius: 15px;
+}
+
+.button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+</style>
+    </head>
+<body>
+  <div class="bg"> 
+	<button class="button" style=" font-color: white;"><a href="{% url 'logout'%}">Logout</a></button>
+  <button class="button" style=" font-color: white;"><a href="{% url 'management'%}">ADMIN</a></button>
+  <button class="button" style="font-color: white;"><a href="{% url 'password_change' %}">change password</a></button>
+  <hgroup>
+    <div class="user_card">
+	<div class="container-fluid">
+		<form action="{% url 'staffselect' %}" method="POST">
+			{% csrf_token %}
+      <center>
+        <h1 style="color: white;">Select Your Optioin</h1>
+    <pre style="font-size:26px; color: white;">Class   : {{form.Class}}<br></pre>
+    <pre style="font-size:26px;color: white;">Subject : {{form.Subject}}<br></pre>
+    <pre style="font-size:26px;">          <input class="form-control" type="Submit" name="Submit"></pre>
+  </center>
+  </form>
+</div>
+	</div>
+</hgroup>
+</div>
+</body>
+</html>
