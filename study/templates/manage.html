@@ -83,9 +83,8 @@ $(document).ready(function(){
 					<td>{{forloop.counter}}</td>
 					<td>{{i.id}}</td>
 					<td>{{i.username}}</td>
+          <td>{{i.email}}</td>
 					<td>{{i.is_staff}}</td>
-					<td>{{i.email}}</td>
-
 					<td><center> <a href="{% url 'stafftrash' i.id %}" style="color: red; font-size:26px;"><span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-original-title="Delete"></span></a></center></td>
 		
 				</tr>
